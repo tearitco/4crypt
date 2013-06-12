@@ -1,6 +1,6 @@
 \ MD5 message digest algorithm
 \ See RFC 1321 for details
-\ (c) 2012 Weldon Goree
+\ (c) 2012-2013 Weldon Goree
 
 \ Circular shift
 
@@ -27,4 +27,8 @@ hex
 : pad-message ( x-addr n -- x-addr n )
     find-pad-length over +
     
+;
+
+: md5 ( x-addr n -- x-addr n )
+  pad-message
 ;
