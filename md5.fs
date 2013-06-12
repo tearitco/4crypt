@@ -4,18 +4,9 @@
 
 \ Circular shift
 
-hex
+s" lib.fs" included
 
-: <<< ( x n -- x )
-    2over 20 - rshift -rot
-    lshift +
-;
-
-: not ( x -- x )
-    -1 xor
-;
-
-: find-pad-length
+: find-pad-length ( n -- n )
     dup 200 mod 1C0 -
     dup 0 <= if
 	dup 200 +
@@ -26,7 +17,7 @@ hex
 
 : pad-message ( x-addr n -- x-addr n )
     find-pad-length over +
-    
+        
 ;
 
 : md5 ( x-addr n -- x-addr n )
